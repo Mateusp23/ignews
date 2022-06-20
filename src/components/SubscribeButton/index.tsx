@@ -6,7 +6,7 @@ interface SubscribeButtonProps {
 }
 
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
-  const [session] = useSession();
+  const { data: session } = useSession()
 
   const handleSubscribe = () => {
     if(!session) {
@@ -14,7 +14,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       return;
     }
 
-    
+
   }
 
   return ( 

@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if(req.method === 'POST') {
     const session = await getSession({ req });
 
-    const stripeCustomer = await stripe.costumers.create({
+    const stripeCustomer = await stripe.custumers.create({
       email: session.user.email,
       //metadata
     });
