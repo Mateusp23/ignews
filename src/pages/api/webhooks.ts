@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { Readable } from 'stream';
 import { stripe } from '../../services/stripe';
 import Stripe from 'stripe';
+import { saveSubscription } from './_lib/manageSubscription';
 
 async function buffer(readable: Readable) {
   const chunks = [];
@@ -73,6 +74,7 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             throw new Error("Unhandled event.");
         }
       } catch (err) {
+        console.log(err)
         return response.json({ error: "Webhook handler failed." });
       }
     }
